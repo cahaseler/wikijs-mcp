@@ -1,5 +1,5 @@
 {
-	"name": "wikijs-mcp",
+	"name": "@cahaseler/wikijs-mcp",
 	"version": "1.0.1",
 	"description": "WikiJS MCP Server",
 	"main": "build/index.js",

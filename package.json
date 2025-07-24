@@ -1,6 +1,6 @@
 {
 	"name": "@cahaseler/wikijs-mcp",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "WikiJS MCP Server",
 	"main": "build/index.js",
 	"type": "module",
@@ -21,7 +21,7 @@
 		"LICENSE"
 	],
 	"bin": {
-		"cahaseler-wikijs-mcp": "build/index.js"
+		"wikijs-mcp-edit": "build/index.js"
 	},
 	"scripts": {
 		"build": "tsc && chmod 755 build/index.js",

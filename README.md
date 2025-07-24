@@ -18,9 +18,11 @@ This MCP server enables AI assistants to interact with WikiJS instances by provi
 npx @cahaseler/wikijs-mcp
 ```
 
+The binary will be available as `wikijs-mcp-edit` to avoid conflicts with the original package.
+
 ### From source
 ```bash
-git clone https://github.com/RicardoCenci/wikijs-mcp.git
+git clone https://github.com/cahaseler/wikijs-mcp.git
 cd wikijs-mcp
 npm install
 npm run build
@@ -36,14 +38,14 @@ npm run build
 claude mcp add wikijs \
   -e WIKIJS_URL=https://your-wiki.example.com \
   -e WIKIJS_API_KEY=your-api-key \
-  -- npx @cahaseler/wikijs-mcp
+  -- wikijs-mcp-edit
 
 # Or with edit functionality enabled
 claude mcp add wikijs \
   -e WIKIJS_URL=https://your-wiki.example.com \
   -e WIKIJS_API_KEY=your-api-key \
   -e WIKIJS_ENABLE_EDIT=true \
-  -- npx @cahaseler/wikijs-mcp
+  -- wikijs-mcp-edit
 ```
 
 #### Method 2: Project-scoped configuration
@@ -53,7 +55,7 @@ Create a `.mcp.json` file in your project root:
   "mcpServers": {
     "wikijs": {
       "command": "npx",
-      "args": ["@cahaseler/wikijs-mcp"],
+      "args": ["wikijs-mcp-edit"],
       "env": {
         "WIKIJS_URL": "https://your-wiki.example.com",
         "WIKIJS_API_KEY": "your-api-key",
@@ -71,7 +73,7 @@ Add to your Cursor settings (`.cursor/settings.json`):
   "mcpServers": {
     "wikijs-mcp": {
       "command": "npx",
-      "args": ["@cahaseler/wikijs-mcp"],
+      "args": ["wikijs-mcp-edit"],
       "env": {
         "WIKIJS_URL": "https://your-wiki.example.com",
         "WIKIJS_API_KEY": "your-api-key",
@@ -93,7 +95,7 @@ Add to your Claude Desktop configuration:
   "mcpServers": {
     "wikijs-mcp": {
       "command": "npx",
-      "args": ["@cahaseler/wikijs-mcp"],
+      "args": ["wikijs-mcp-edit"],
       "env": {
         "WIKIJS_URL": "https://your-wiki.example.com",
         "WIKIJS_API_KEY": "your-api-key",

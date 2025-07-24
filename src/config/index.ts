@@ -11,6 +11,7 @@ if (!process.env.WIKIJS_URL || !process.env.WIKIJS_API_KEY) {
 }
 
 export const CONFIG = {
-	WIKIJS_URL: process.env.WIKIJS_URL!,
-	WIKIJS_API_KEY: process.env.WIKIJS_API_KEY!
+	WIKIJS_URL: process.env.WIKIJS_URL,
+	WIKIJS_API_KEY: process.env.WIKIJS_API_KEY,
+	ENABLE_EDIT: process.env.WIKIJS_ENABLE_EDIT === 'true' || false
 };

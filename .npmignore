@@ -1,0 +1,45 @@
+# Source files
+src/
+*.ts
+!build/**/*.d.ts
+
+# Development files
+.env
+.env.local
+.env.*
+docker-compose.yml
+Makefile
+codegen.yml
+tsconfig.json
+.mcp.json
+
+# Documentation
+CLAUDE.md
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+__tests__/
+*.test.ts
+*.spec.ts
+jest.config.js
+.eslintrc.json
+coverage/

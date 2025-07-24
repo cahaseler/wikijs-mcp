@@ -13,9 +13,9 @@ export function getVersion(): string {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = dirname(__filename);
     const packageJsonPath = join(__dirname, '../../package.json');
-    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8')) as { version: string };
 
-    cachedVersion = packageJson.version as string;
+    cachedVersion = packageJson.version;
     return cachedVersion;
 
   } catch (error) {

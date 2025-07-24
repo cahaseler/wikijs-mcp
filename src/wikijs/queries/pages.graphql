@@ -63,3 +63,71 @@ query SearchPages($query: String!, $path: String, $locale: String) {
     }
   }
 }
+
+mutation CreatePage(
+  $title: String!
+  $content: String!
+  $description: String!
+  $editor: String!
+  $isPublished: Boolean!
+  $isPrivate: Boolean!
+  $locale: String!
+  $tags: [String]!
+  $path: String!
+) {
+  pages {
+    create(
+      title: $title
+      content: $content
+      description: $description
+      editor: $editor
+      isPublished: $isPublished
+      isPrivate: $isPrivate
+      locale: $locale
+      tags: $tags
+      path: $path
+    ) {
+      responseResult {
+        succeeded
+        errorCode
+        slug
+        message
+      }
+    }
+  }
+}
+
+mutation UpdatePage(
+  $id: Int!
+  $title: String!
+  $content: String!
+  $description: String!
+  $editor: String!
+  $isPublished: Boolean!
+  $isPrivate: Boolean!
+  $locale: String!
+  $tags: [String]!
+  $path: String!
+) {
+  pages {
+    update(
+      id: $id
+      title: $title
+      content: $content
+      description: $description
+      editor: $editor
+      isPublished: $isPublished
+      isPrivate: $isPrivate
+      locale: $locale
+      tags: $tags
+      path: $path
+    ) {
+      responseResult {
+        succeeded
+        errorCode
+        slug
+        message
+      }
+    }
+  }
+}

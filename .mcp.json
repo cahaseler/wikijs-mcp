@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "wikijs": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "build/index.js"
+      ],
+      "env": {
+        "WIKIJS_URL": "http://localhost:3000",
+        "WIKIJS_API_KEY": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjEsImdycCI6MSwiaWF0IjoxNzUzMjkyOTA0LCJleHAiOjE3ODQ4NTA1MDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.M970-p-Z254-qCuPnbzPZ4UELzfk1AEaKKyu3wTeb8on9mrAZLSUc6r8_q4efUakChfD7prhCrRQJpq6ccvGeV894GwkCoh9qtveIrlFkaAehn91hieDu8imOC2GvvsHGW3pGH_tv16xYIrQ2gyq5Kxkn3OPfqqoAiaO41_VAGhvlMlRDm6EQYshrbIV7fANwRckH0JdhLQOTCfi9-31_Wzv_taal6a-3W00cpK2SQ3DJBL-fI-m-p_mMDzELfQ6Fp2SfvfYaNFpC45EnE_yrXbnIxRlhJCD9gCYQhJ9nGjChjVhaDyBMmN9FR55qiNa1-soqkKFlRue4zgjth9iNw",
+        "WIKIJS_ENABLE_EDIT": "true"
+      }
+    }
+  }
+}

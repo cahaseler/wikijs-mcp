@@ -1851,6 +1851,37 @@ export type SearchPagesQueryVariables = Exact<{
 
 export type SearchPagesQuery = { __typename?: 'Query', pages?: { __typename?: 'PageQuery', search: { __typename?: 'PageSearchResponse', suggestions: Array<string | null>, totalHits: number, results: Array<{ __typename?: 'PageSearchResult', title: string, description: string, path: string, locale: string } | null> } } | null };
 
+export type CreatePageMutationVariables = Exact<{
+  title: Scalars['String']['input'];
+  content: Scalars['String']['input'];
+  description: Scalars['String']['input'];
+  editor: Scalars['String']['input'];
+  isPublished: Scalars['Boolean']['input'];
+  isPrivate: Scalars['Boolean']['input'];
+  locale: Scalars['String']['input'];
+  tags: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  path: Scalars['String']['input'];
+}>;
+
+
+export type CreatePageMutation = { __typename?: 'Mutation', pages?: { __typename?: 'PageMutation', create?: { __typename?: 'PageResponse', responseResult: { __typename?: 'ResponseStatus', succeeded: boolean, errorCode: number, slug: string, message?: string | null } } | null } | null };
+
+export type UpdatePageMutationVariables = Exact<{
+  id: Scalars['Int']['input'];
+  title: Scalars['String']['input'];
+  content: Scalars['String']['input'];
+  description: Scalars['String']['input'];
+  editor: Scalars['String']['input'];
+  isPublished: Scalars['Boolean']['input'];
+  isPrivate: Scalars['Boolean']['input'];
+  locale: Scalars['String']['input'];
+  tags: Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>;
+  path: Scalars['String']['input'];
+}>;
+
+
+export type UpdatePageMutation = { __typename?: 'Mutation', pages?: { __typename?: 'PageMutation', update?: { __typename?: 'PageResponse', responseResult: { __typename?: 'ResponseStatus', succeeded: boolean, errorCode: number, slug: string, message?: string | null } } | null } | null };
+
 
 export const GetPageByIdDocument = gql`
     query GetPageById($id: Int!) {
@@ -1922,6 +1953,55 @@ export const SearchPagesDocument = gql`
   }
 }
     `;
+export const CreatePageDocument = gql`
+    mutation CreatePage($title: String!, $content: String!, $description: String!, $editor: String!, $isPublished: Boolean!, $isPrivate: Boolean!, $locale: String!, $tags: [String]!, $path: String!) {
+  pages {
+    create(
+      title: $title
+      content: $content
+      description: $description
+      editor: $editor
+      isPublished: $isPublished
+      isPrivate: $isPrivate
+      locale: $locale
+      tags: $tags
+      path: $path
+    ) {
+      responseResult {
+        succeeded
+        errorCode
+        slug
+        message
+      }
+    }
+  }
+}
+    `;
+export const UpdatePageDocument = gql`
+    mutation UpdatePage($id: Int!, $title: String!, $content: String!, $description: String!, $editor: String!, $isPublished: Boolean!, $isPrivate: Boolean!, $locale: String!, $tags: [String]!, $path: String!) {
+  pages {
+    update(
+      id: $id
+      title: $title
+      content: $content
+      description: $description
+      editor: $editor
+      isPublished: $isPublished
+      isPrivate: $isPrivate
+      locale: $locale
+      tags: $tags
+      path: $path
+    ) {
+      responseResult {
+        succeeded
+        errorCode
+        slug
+        message
+      }
+    }
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -1941,6 +2021,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     SearchPages(variables: SearchPagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<SearchPagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<SearchPagesQuery>({ document: SearchPagesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'SearchPages', 'query', variables);
+    },
+    CreatePage(variables: CreatePageMutationVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<CreatePageMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<CreatePageMutation>({ document: CreatePageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'CreatePage', 'mutation', variables);
+    },
+    UpdatePage(variables: UpdatePageMutationVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<UpdatePageMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UpdatePageMutation>({ document: UpdatePageDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'UpdatePage', 'mutation', variables);
     }
   };
 }

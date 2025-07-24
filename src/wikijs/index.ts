@@ -38,4 +38,46 @@ export class WikiJSClient {
     const result = await this.sdk.GetPageByPath({ path, locale });
     return result.pages?.singleByPath || null;
   }
+
+  async createPage(params: {
+    title: string;
+    content: string;
+    description: string;
+    path: string;
+    editor?: string;
+    isPublished?: boolean;
+    isPrivate?: boolean;
+    locale?: string;
+    tags?: string[];
+  }) {
+    const result = await this.sdk.CreatePage({
+      title: params.title,
+      content: params.content,
+      description: params.description,
+      path: params.path,
+      editor: params.editor || 'markdown',
+      isPublished: params.isPublished ?? true,
+      isPrivate: params.isPrivate ?? false,
+      locale: params.locale || 'en',
+      tags: params.tags || []
+    });
+    
+    return result.pages?.create || null;
+  }
+
+  async updatePage(params: {
+    id: number;
+    title: string;
+    content: string;
+    description: string;
+    editor: string;
+    isPublished: boolean;
+    isPrivate: boolean;
+    locale: string;
+    tags: string[];
+    path: string;
+  }) {
+    const result = await this.sdk.UpdatePage(params);
+    return result.pages?.update || null;
+  }
 } 

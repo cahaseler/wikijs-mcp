@@ -38,14 +38,14 @@ npm run build
 claude mcp add wikijs \
   -e WIKIJS_URL=https://your-wiki.example.com \
   -e WIKIJS_API_KEY=your-api-key \
-  -- wikijs-mcp-edit
+  -- npx @cahaseler/wikijs-mcp
 
 # Or with edit functionality enabled
 claude mcp add wikijs \
   -e WIKIJS_URL=https://your-wiki.example.com \
   -e WIKIJS_API_KEY=your-api-key \
   -e WIKIJS_ENABLE_EDIT=true \
-  -- wikijs-mcp-edit
+  -- npx @cahaseler/wikijs-mcp
 ```
 
 #### Method 2: Project-scoped configuration
@@ -55,7 +55,7 @@ Create a `.mcp.json` file in your project root:
   "mcpServers": {
     "wikijs": {
       "command": "npx",
-      "args": ["wikijs-mcp-edit"],
+      "args": ["@cahaseler/wikijs-mcp"],
       "env": {
         "WIKIJS_URL": "https://your-wiki.example.com",
         "WIKIJS_API_KEY": "your-api-key",
@@ -73,7 +73,7 @@ Add to your Cursor settings (`.cursor/settings.json`):
   "mcpServers": {
     "wikijs-mcp": {
       "command": "npx",
-      "args": ["wikijs-mcp-edit"],
+      "args": ["@cahaseler/wikijs-mcp"],
       "env": {
         "WIKIJS_URL": "https://your-wiki.example.com",
         "WIKIJS_API_KEY": "your-api-key",
@@ -95,7 +95,7 @@ Add to your Claude Desktop configuration:
   "mcpServers": {
     "wikijs-mcp": {
       "command": "npx",
-      "args": ["wikijs-mcp-edit"],
+      "args": ["@cahaseler/wikijs-mcp"],
       "env": {
         "WIKIJS_URL": "https://your-wiki.example.com",
         "WIKIJS_API_KEY": "your-api-key",
